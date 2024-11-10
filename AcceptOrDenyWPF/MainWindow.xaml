@@ -5,8 +5,34 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:AcceptOrDenyWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="720" Width="1200">
+        Background="Black"
+        
+        Title="Accept or Deny" Height="720" Width="1200">
     <Grid>
-
+        <TextBlock 
+            Foreground="Green"
+            Height="50"
+            VerticalAlignment="Top"
+            FontSize="30"
+            FontWeight="DemiBold"
+            Margin="495,189,469,0"><Run Text="Accept or Deny"/><LineBreak/><Run/></TextBlock>
+        <TextBlock 
+            Foreground="LightBlue"
+            Height="50"
+            Width="185"
+            VerticalAlignment="Top"
+            FontSize="15"
+            FontWeight="DemiBold"
+            Text="A game by Anthony Butler" 
+            Margin="495,229"/>
+        <StackPanel VerticalAlignment="Center" Width="110">
+            <Button FontSize="20">New Game</Button>
+            <Button FontSize="20">Load Game</Button>
+            <Button 
+                FontSize="20"
+                x:Name="GameInfo"
+                >Game Info
+            </Button>
+        </StackPanel>
     </Grid>
 </Window>
