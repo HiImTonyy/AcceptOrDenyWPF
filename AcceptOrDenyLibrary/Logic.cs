@@ -166,7 +166,7 @@ namespace AcceptOrDenyLibrary
 
             Console.ForegroundColor = ConsoleColor.Magenta;
 
-            Console.WriteLine("\nThe point of the game is to accept or deny someone coming into the country.\n");
+            Console.WriteLine("The point of the game is to accept or deny someone coming into the country.");
 
             Console.WriteLine("The computer screen shows the valid info of the person in-front of you. if the ID given does not match");
             Console.WriteLine("the computer screen, then you must deny them. if it does, accept them. be sure to check the expiration");

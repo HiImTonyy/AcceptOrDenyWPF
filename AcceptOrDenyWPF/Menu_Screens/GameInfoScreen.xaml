@@ -1,0 +1,35 @@
+﻿<Page x:Class="AcceptOrDenyWPF.Menu_Screens.GameInfoScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AcceptOrDenyWPF.Menu_Screens"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Background="black"
+      Title="GameInfoScreen">
+
+    <Grid>
+        <Label
+            Foreground="Magenta"
+            Content="&#xA;&#xA;            The point of the game is to accept or deny someone coming into the country.&#xA;&#xA;            The computer screen shows the valid info of the person in-front of you. if the ID given does not match the computer screen, then you must deny them. &#xA;            if it does, accept them. be sure to check the expiration date as well. if their ID is the same but is expired, deny them.&#xA;&#xA;            The list of things that can be changed are as followed:&#xA;            1 - First Name&#xA;            2 - Last Name&#xA;            3 - Birth Month&#xA;            4 - Birth Day&#xA;            5 - Birth Year&#xA;            6 - Gender&#xA;            7 - Street Address&#xA;            8 - Street Number&#xA;            9 - Street Direction&#xA;&#xA;           Again, be sure the check the expiration date!&#xA;&#xA;           At the end of the day, you will lose quite a bit of money for each wrong judgement but gain some money for each correct judgement. &#xA;           you will also have to pay any bills that are due. your bills are:&#xA;           Food, Electric, and Rent. IF YOUR BALANCE REACHES 0, YOU LOSE THE GAME!&#xA;&#xA;           Also, If you do super well by the end of the week, then you will get a promotion. do super bad and you will get demoted. &#xA;           promotion = increased daily wage, demotion = decreased daily wage. You can also view all sorts of stats while at home. and that's that, have fun!&#xA;&#xA;"
+            Width="1150"
+            Height="600"
+            FontSize="16"
+            VerticalAlignment="Center" Margin="30,10,30,50">
+        </Label>
+        <Label Width="70" Height="30"
+               VerticalAlignment="Bottom"
+               FontSize="15"
+               Content="Go Back"
+               Foreground="AliceBlue"
+               PreviewMouseDown="BackToMenu"
+               BorderThickness="2"
+               BorderBrush="AliceBlue"
+               Margin="0,0,0,30"
+               Cursor="Hand"
+               >
+            
+        </Label>
+    </Grid>
+</Page>
