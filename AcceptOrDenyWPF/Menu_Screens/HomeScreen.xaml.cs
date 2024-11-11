@@ -21,15 +21,27 @@ namespace AcceptOrDenyWPF.Menu_Screens
     /// </summary>
     public partial class HomeScreen : Page
     {
+        private Bills bill;
+        private Player player;
+        private Work work;
         public HomeScreen(Bills bill, Player player, Work work)
         {
             InitializeComponent();
+
+            this.bill = bill;
+            this.player = player;
+            this.work = work;
 
             currentDateLbl.Content = DateTime.Now.ToString("MM/dd/yyyy");
             playerFirstNameLbl.Content = player.FirstName;
             playerLastNameLbl.Content = player.LastName;
             playerMoneyLbl.Content = player.Money;
             playerMoneyLbl.Content = "$" + player.Money;
+        }
+
+        private void playerStatsButton_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new PlayerStatsScreen(bill, player, work));
         }
     }
 }

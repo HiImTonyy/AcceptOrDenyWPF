@@ -1,0 +1,52 @@
+﻿<Page x:Class="AcceptOrDenyWPF.Menu_Screens.PlayerStatsScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AcceptOrDenyWPF.Menu_Screens"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="Accept or Deny - Home"
+      Background="AliceBlue">
+
+    <Page.Resources>
+        <!--Text Styles-->
+        <Style x:Key="TextBlock" TargetType="TextBlock">
+            <Setter Property = "FontSize" Value="30"/>
+            <Setter Property = "FontWeight" Value="Bold"></Setter>
+            <Setter Property = "Margin" Value="0,-5,0,0"></Setter>
+            <Setter Property = "HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style x:Key="Label" TargetType="Label">
+            <Setter Property = "FontSize" Value="30"></Setter>
+            <Setter Property = "HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+            <ColumnDefinition Width="400"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <!--Player related stats-->
+        <StackPanel Grid.Column="0" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock Text="Player Stats" FontSize="50" Style = "{StaticResource TextBlock}"></TextBlock>
+            <TextBlock Text="First Name" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="playerFirstNameLbl" Content="" Style = "{StaticResource Label}"></Label>
+            <TextBlock Text="Last Name" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="playerLastNameLbl" Content="" Style = "{StaticResource Label}"></Label>
+        </StackPanel>
+        <!--Work related stats-->
+        <StackPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock Text="Work Stats" FontSize="50" Style = "{StaticResource TextBlock}"></TextBlock>
+            <TextBlock Text="Wat" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="playerFirstaNameLbl" Content="" Style = "{StaticResource Label}"></Label>
+        </StackPanel>
+        <!--Bill related stats-->
+        <StackPanel Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock Text="Bill Stats" FontSize="50" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="playerFirwstNameLbl" Content="" Style = "{StaticResource Label}"></Label>
+        </StackPanel>
+    </Grid>
+</Page>

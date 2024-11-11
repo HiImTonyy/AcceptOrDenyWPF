@@ -29,16 +29,19 @@
             <Button FontSize="20"
                     Click="MainMenuButtonClick"
                     x:Name="NewGame"
+                     Cursor="Hand"
                     >New Game
             </Button>
             <Button FontSize="20"
                     x:Name="LoadGame"
+                    Cursor="Hand"
                     >Load Game
             </Button>
             <Button 
                 Click="MainMenuButtonClick"
                 FontSize="20"
                 x:Name="GameInfo"
+                 Cursor="Hand"
                 >Game Info
             </Button>
         </StackPanel>
