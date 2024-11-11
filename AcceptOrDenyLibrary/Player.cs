@@ -71,9 +71,6 @@
                         Work.Working(bill, player, work);
                         Console.ResetColor();
                         break;
-                    case "2":
-                        PlayerStats(bill, player, work);
-                        break;
                     case "3":
                         Logic.SaveGame(bill, player, work);
                         break;
@@ -82,25 +79,6 @@
                         break;
                 }
             }
-        }
-
-        public static void PlayerStats(Bills bill, Player player, Work work)
-        {
-            Console.Clear();
-            Console.WriteLine("STATS");
-            Console.WriteLine("-----");
-            Console.WriteLine($"Name: {player.FirstName} {player.LastName}");
-            Console.WriteLine($"Current Balance {player.Money}");
-            Console.WriteLine($"Current Daily Wage: {work.DayWage}");
-            Console.WriteLine($"Total Correct Judgements: {work.AlltimeCorrectJudgements}");
-            Console.WriteLine($"Total Incorrect Judgements: {work.AlltimeIncorrectJudgements}");
-            Console.WriteLine($"Days Employed: {player.DaysEmployed}");
-            Console.WriteLine($"Food Bill: {bill.FoodCost}");
-            Console.WriteLine($"Elctric Bill: {bill.ElectricityCost}");
-            Console.WriteLine($"Rent Bill: {bill.RentCost}\n");
-
-            Console.WriteLine("Press Enter to go back...");
-            Console.ReadLine();
         }
     }
 }

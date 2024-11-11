@@ -36,17 +36,43 @@
             <Label x:Name="playerFirstNameLbl" Content="" Style = "{StaticResource Label}"></Label>
             <TextBlock Text="Last Name" Style = "{StaticResource TextBlock}"></TextBlock>
             <Label x:Name="playerLastNameLbl" Content="" Style = "{StaticResource Label}"></Label>
+            <TextBlock Text="Daily Wage" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="dailyPlayerWageLbl" Style = "{StaticResource Label}"></Label>
+            <TextBlock Text="Days Employed" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="daysEmployedLbl" Style = "{StaticResource Label}"></Label>
         </StackPanel>
         <!--Work related stats-->
         <StackPanel Grid.Column="1" VerticalAlignment="Top" HorizontalAlignment="Center">
             <TextBlock Text="Work Stats" FontSize="50" Style = "{StaticResource TextBlock}"></TextBlock>
-            <TextBlock Text="Wat" Style = "{StaticResource TextBlock}"></TextBlock>
-            <Label x:Name="playerFirstaNameLbl" Content="" Style = "{StaticResource Label}"></Label>
+            <TextBlock Text="Total Correct Judgements" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="totalCorrectJudgementsLbl" Content="" Style = "{StaticResource Label}"></Label>
+            <TextBlock Text="Total Incorrect Judgements" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="totalIncorrectJudgementsLbl" Content="" Style = "{StaticResource Label}"></Label>
         </StackPanel>
         <!--Bill related stats-->
         <StackPanel Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Center">
             <TextBlock Text="Bill Stats" FontSize="50" Style = "{StaticResource TextBlock}"></TextBlock>
-            <Label x:Name="playerFirwstNameLbl" Content="" Style = "{StaticResource Label}"></Label>
+            <TextBlock Text="Food Bill Cost" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="foodBillCostLbl" Content="" Style = "{StaticResource Label}"></Label>
+            <TextBlock Text="Electric Bill Cost" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="electricBillCostLbl" Content="" Style = "{StaticResource Label}"></Label>
+            <TextBlock Text="Rent Bill Cost" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="rentBillCostLbl" Content="" Style = "{StaticResource Label}"></Label>
         </StackPanel>
+        <Label
+            HorizontalAlignment="Center"
+            VerticalAlignment="Bottom"
+            Grid.Column="1"
+            Content="Go Back"
+            FontSize="35"
+            FontWeight="Bold"
+            BorderBrush="Black"
+            BorderThickness="3"
+            Cursor="Hand"
+            Margin="0,0,0,20"
+            PreviewMouseDown="BackToMenu"
+            >
+            
+        </Label>
     </Grid>
 </Page>
