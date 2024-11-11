@@ -39,9 +39,27 @@ namespace AcceptOrDenyWPF.Menu_Screens
             playerMoneyLbl.Content = "$" + player.Money;
         }
 
-        private void playerStatsButton_Click(object sender, RoutedEventArgs e)
+        private void HomeMenuButtonClick(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new PlayerStatsScreen(bill, player, work));
+            var button_click = (Button)sender;
+
+            switch (button_click.Name)
+            {
+                case "goToWork":
+                    WorkComputerScreen workComputerScreen = new WorkComputerScreen(bill, player, work);
+                    NavigationService.Navigate(new WorkComputerScreen(bill, player, work));
+                    NpcIDWindow npcIDWindow = new NpcIDWindow();
+                    npcIDWindow.Show();
+                    //WORK
+                    break;
+                case "showStats":
+                    PlayerStatsScreen PlayerStatsScreen = new PlayerStatsScreen(bill, player, work);
+                    NavigationService.Navigate(new PlayerStatsScreen(bill, player, work));
+                    break;
+                case "saveGame":
+                    //Save Game
+                    break;
+            }
         }
     }
 }

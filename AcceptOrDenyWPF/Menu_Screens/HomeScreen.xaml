@@ -46,9 +46,9 @@
         </WrapPanel>
         <!--Home Buttons-->
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">
-            <Button Cursor="Hand" Content="Go to work" Style = "{StaticResource homeButtons}"></Button>
-            <Button Cursor="Hand" Click="playerStatsButton_Click" x:Name="playerStatsButton" Content="Show Stats" Style = "{StaticResource homeButtons}"></Button>
-            <Button Cursor="Hand" Content="Save Game" Style = "{StaticResource homeButtons}"></Button>
+            <Button x:Name="goToWork" Cursor="Hand" Click="HomeMenuButtonClick" Content="Go to work" Style = "{StaticResource homeButtons}"></Button>
+            <Button x:Name="showStats" Cursor="Hand" Click="HomeMenuButtonClick" Content="Show Stats" Style = "{StaticResource homeButtons}"></Button>
+            <Button x:Name="saveGame" Cursor="Hand" Click="HomeMenuButtonClick" Content="Save Game" Style = "{StaticResource homeButtons}"></Button>
         </StackPanel>
     </Grid>
 </Page>

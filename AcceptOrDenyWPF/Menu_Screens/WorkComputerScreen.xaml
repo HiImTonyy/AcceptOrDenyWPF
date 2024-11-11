@@ -1,0 +1,41 @@
+﻿<Page x:Class="AcceptOrDenyWPF.Menu_Screens.WorkComputerScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AcceptOrDenyWPF.Menu_Screens"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="Accept or Deny - Working"
+      Background="Black">
+
+    <Page.Resources>
+        <Style x:Key="TextBlock" TargetType="TextBlock">
+            <Setter Property = "FontSize" Value="20"/>
+            <Setter Property = "FontWeight" Value="ExtraBold"></Setter>
+            <Setter Property = "Foreground" Value="LimeGreen"></Setter>
+            <Setter Property = "Margin" Value="0,20,0,0"></Setter>
+        </Style>
+        <Style x:Key="Label" TargetType="Label">
+            <Setter Property = "FontSize" Value="20"></Setter>
+            <Setter Property = "Foreground" Value="LawnGreen"></Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+            <TextBlock Text="First Name" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="npcFirstNameLbl" Content="Johnny" Style = "{StaticResource Label}"></Label>
+            <TextBlock Text="Last Name" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="npcLastNameLbl" Content="Bradshaw" Style = "{StaticResource Label}"></Label>
+            <TextBlock Text="Date of Birth" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="npcDateOfBirthLbl" Content="01/01/1901" Style = "{StaticResource Label}"></Label>
+            <TextBlock Text="Gender" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="npcGenderLbl" Content="Male" Style = "{StaticResource Label}"></Label>
+            <TextBlock Text="Street Address" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="npcStreetAddressLbl" Content="426 Williamson Street South" Style = "{StaticResource Label}"></Label>
+            <TextBlock Text="ID Expiration" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="npcIdExpirationLbl" Content="01/01/1901" Style = "{StaticResource Label}"></Label>
+        </StackPanel>
+    </Grid>
+</Page>

@@ -41,6 +41,10 @@ namespace AcceptOrDenyWPF.Menu_Screens
                     GameInfoScreen gameInfoScreen = new GameInfoScreen();
                     MainWindowFrame.Navigate(gameInfoScreen);
                     break;
+                case "TEST":
+                    NpcIDWindow npcIDWindow = new NpcIDWindow();
+                    npcIDWindow.Show();
+                    break;
             }
         }
 
