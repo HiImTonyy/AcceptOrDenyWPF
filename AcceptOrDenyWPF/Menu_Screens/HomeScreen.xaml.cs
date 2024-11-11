@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AcceptOrDenyLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -16,19 +17,19 @@ using System.Windows.Shapes;
 namespace AcceptOrDenyWPF.Menu_Screens
 {
     /// <summary>
-    /// Interaction logic for GameInfoScreen.xaml
+    /// Interaction logic for HomeScreen.xaml
     /// </summary>
-    public partial class GameInfoScreen : Page
+    public partial class HomeScreen : Page
     {
-
-        public GameInfoScreen()
+        public HomeScreen(Bills bill, Player player, Work work)
         {
             InitializeComponent();
-        }
 
-        private void BackToMenu(object sender, MouseButtonEventArgs e)
-        {
-            NavigationService.Navigate(new MainMenuScreen());
+            currentDateLbl.Content = DateTime.Now.ToString("MM/dd/yyyy");
+            playerFirstNameLbl.Content = player.FirstName;
+            playerLastNameLbl.Content = player.LastName;
+            playerMoneyLbl.Content = player.Money;
+            playerMoneyLbl.Content = "$" + player.Money;
         }
     }
 }

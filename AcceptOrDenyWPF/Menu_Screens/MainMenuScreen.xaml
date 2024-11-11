@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:AcceptOrDenyWPF.Menu_Screens"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="700" d:DesignWidth="1200"
       Title="Accept or Deny - Main Menu">
 
     <Grid>
@@ -26,10 +26,17 @@
             Text="A game by Anthony Butler" 
             Margin="495,229"/>
         <StackPanel VerticalAlignment="Center" Width="110">
-            <Button FontSize="20">New Game</Button>
-            <Button FontSize="20">Load Game</Button>
+            <Button FontSize="20"
+                    Click="MainMenuButtonClick"
+                    x:Name="NewGame"
+                    >New Game
+            </Button>
+            <Button FontSize="20"
+                    x:Name="LoadGame"
+                    >Load Game
+            </Button>
             <Button 
-                Click="GameInfo_Click"
+                Click="MainMenuButtonClick"
                 FontSize="20"
                 x:Name="GameInfo"
                 >Game Info

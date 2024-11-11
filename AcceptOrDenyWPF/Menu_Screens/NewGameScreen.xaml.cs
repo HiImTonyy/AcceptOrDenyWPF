@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AcceptOrDenyLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,20 +16,22 @@ using System.Windows.Shapes;
 
 namespace AcceptOrDenyWPF.Menu_Screens
 {
-    /// <summary>
-    /// Interaction logic for GameInfoScreen.xaml
-    /// </summary>
-    public partial class GameInfoScreen : Page
+    public partial class NewGameScreen : Page
     {
+        Bills bill = new Bills();
+        Player player = new Player();
+        Work work = new Work();
 
-        public GameInfoScreen()
+        public NewGameScreen()
         {
             InitializeComponent();
         }
 
-        private void BackToMenu(object sender, MouseButtonEventArgs e)
+        private void StartNewGame(object sender, MouseButtonEventArgs e)
         {
-            NavigationService.Navigate(new MainMenuScreen());
+            player.FirstName = firstNameText.Text;
+            player.LastName = lastNameText.Text;
+            NavigationService.Navigate(new HomeScreen(bill, player, work));        
         }
     }
 }

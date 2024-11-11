@@ -7,7 +7,7 @@
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="1200"
       Background="black"
-      Title="GameInfoScreen">
+      Title="Accept or Deny - Game Info">
 
     <Grid>
         <Label

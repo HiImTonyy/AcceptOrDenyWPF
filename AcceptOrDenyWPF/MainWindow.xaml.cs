@@ -1,4 +1,5 @@
-﻿using AcceptOrDenyWPF.Menu_Screens;
+﻿using AcceptOrDenyLibrary;
+using AcceptOrDenyWPF.Menu_Screens;
 using System.Text;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,6 +21,9 @@ namespace AcceptOrDenyWPF
         public MainWindow()
         {
             InitializeComponent();
+            Bills bill = new Bills();
+            Player player = new Player();
+            Work work = new Work();
             MainWindowFrame.Navigate(new MainMenuScreen());
         }
     }

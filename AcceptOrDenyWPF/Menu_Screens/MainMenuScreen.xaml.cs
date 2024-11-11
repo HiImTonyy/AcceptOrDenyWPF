@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AcceptOrDenyLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,15 +21,32 @@ namespace AcceptOrDenyWPF.Menu_Screens
     /// </summary>
     public partial class MainMenuScreen : Page
     {
+        
         public MainMenuScreen()
         {
             InitializeComponent();
         }
 
-        private void GameInfo_Click(object sender, RoutedEventArgs e)
+        private void MainMenuButtonClick(object sender, RoutedEventArgs e)
         {
-            GameInfoScreen gameInfoScreen = new GameInfoScreen();
-            MainWindowFrame.Navigate(gameInfoScreen);
+            var button_click = (Button)sender; 
+
+            switch(button_click.Name)
+            {
+                case "NewGame":
+                    NewGameScreen newGameScreen = new NewGameScreen();
+                    MainWindowFrame.Navigate(newGameScreen);
+                    break;
+                case "GameInfo":
+                    GameInfoScreen gameInfoScreen = new GameInfoScreen();
+                    MainWindowFrame.Navigate(gameInfoScreen);
+                    break;
+            }
+        }
+
+        private void NewGame_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

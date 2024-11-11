@@ -1,0 +1,35 @@
+﻿<Page x:Class="AcceptOrDenyWPF.Menu_Screens.NewGameScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AcceptOrDenyWPF.Menu_Screens"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Background="black"
+      Title="Accept or Deny - Starting New Game">
+
+    <Grid>
+        <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
+            <Label Foreground="AliceBlue" FontWeight="Bold" FontSize="45">First Name</Label>
+            <TextBox  x:Name="firstNameText" FontSize="45"></TextBox>
+            <Label Margin="0,60,0,0" Foreground="AliceBlue" FontWeight="Bold" FontSize="45">Last Name</Label>
+            <TextBox x:Name="lastNameText" FontSize="45"></TextBox>
+            <Label
+                x:Name="StartNewGameButton"
+                Content="Continue"
+                Foreground="Black"
+                FontSize="40"
+                BorderThickness="4"
+                BorderBrush="AliceBlue"
+                Background="DarkGray"
+                Width="190"
+                Margin="0,60,0,0"
+                FontWeight="Bold"
+                Cursor="Hand"
+                PreviewMouseDown="StartNewGame"
+                >
+            </Label>
+        </StackPanel>
+    </Grid>
+</Page>
