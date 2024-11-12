@@ -23,7 +23,7 @@
     </Page.Resources>
 
     <Grid>
-        <StackPanel HorizontalAlignment="Right" >
+        <StackPanel HorizontalAlignment="Right" Margin="0,0,20,0" >
             <Label x:Name="wrongAnswerLbl" FontSize="23" Foreground="Crimson" Visibility="Hidden" FontWeight="bold" Content="Incorrect! the error was their"></Label>
             <Label x:Name="nextPersonLbl" Width="105" Height="35" Visibility="Hidden" PreviewMouseDown="NextPersonButtonClick" Foreground="white" Cursor="Hand" BorderBrush="Azure" BorderThickness="2" FontSize="15" Content="Next Person" ></Label>
         </StackPanel>

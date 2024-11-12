@@ -38,7 +38,11 @@ namespace AcceptOrDenyWPF.Menu_Screens
             npc = new NPC().GenerateNPC();
             NPC npcComputerInfo = new NPC(npc);
 
-            if (npc.IsIllegal) { NPC.SelectIDError(npc); }
+            if (npc.IsIllegal) 
+            { 
+                NPC.SelectIDError(npc); 
+            }
+
             if (npc.ErrorType == (int)Logic.IDErrorType.ExpirationDate)
             {
                 npcComputerInfo = new NPC(npc);
@@ -81,12 +85,14 @@ namespace AcceptOrDenyWPF.Menu_Screens
             npc = new NPC().GenerateNPC();
             NPC npcComputerInfo = new NPC(npc);
 
+            if (npc.IsIllegal) { NPC.SelectIDError(npc); }
+
             if (npc.ErrorType == (int)Logic.IDErrorType.ExpirationDate)
             {
                 npcComputerInfo = new NPC(npc);
             }
 
-            UpdateNPCData(npc, npcComputerInfo);
+            UpdateNPCData(npcComputerInfo);
 
 
             if (npcIDWindow != null && npcIDWindow.IsVisible)
@@ -100,7 +106,7 @@ namespace AcceptOrDenyWPF.Menu_Screens
             denyButton.Visibility = Visibility.Visible;
         }
 
-        public void UpdateNPCData(NPC npc, NPC npcComputerInfo)
+        public void UpdateNPCData(NPC npcComputerInfo)
         {
             work.CurrentLineup--;
 
@@ -114,3 +120,6 @@ namespace AcceptOrDenyWPF.Menu_Screens
         }
     }
 }
+
+
+// FULL BIRTHDATE AND FULL STREET ADDRESS FOR ID MATCHES WITH COMPUTER SCREEN EVEN THOUGH WHEN ILLEGAL IT SHOULDN'T BE.

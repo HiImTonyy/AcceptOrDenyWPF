@@ -25,9 +25,9 @@ namespace AcceptOrDenyLibrary
         private bool isIllegal;
         private int errorType;
         private string errorTypeString;
-        private string fullExpirationDate;
-        private string fullBirthdate;
-        private string fullStreetAddress;
+        public string FullExpirationDate => $"{ExpirationMonth}/{ExpirationDay}/{ExpirationYear}";
+        public string FullBirthdate => $"{BirthMonth}/{BirthDay}/{BirthYear}";
+        public string FullStreetAddress => $"{StreetNumber} {StreetAddress} Street {StreetDirection}";
 
         public string FirstName
         {
@@ -123,24 +123,6 @@ namespace AcceptOrDenyLibrary
             set { errorTypeString = value; }
         }
 
-        public string FullExpirationDate
-        {
-            get { return fullExpirationDate; }
-            set { fullExpirationDate = value; }
-        }
-
-        public string FullBirthdate
-        {
-            get { return fullBirthdate; }
-            set { fullBirthdate = value; }
-        }
-
-        public string FullStreetAddress
-        {
-            get { return fullStreetAddress; }
-            set { fullStreetAddress = value; }
-        }
-
         public NPC()
         {
             FirstName = this.FirstName;
@@ -156,9 +138,6 @@ namespace AcceptOrDenyLibrary
             ExpirationMonth = this.ExpirationMonth;
             ExpirationDay = this.ExpirationDay;
             ExpirationYear = this.ExpirationYear;
-            FullExpirationDate = this.FullExpirationDate;
-            FullBirthdate = this.FullBirthdate;
-            FullStreetAddress = this.FullStreetAddress;
             ErrorTypeString = this.ErrorTypeString;
         }
 
@@ -177,9 +156,6 @@ namespace AcceptOrDenyLibrary
             ExpirationMonth = npc.ExpirationMonth;
             ExpirationDay = npc.ExpirationDay;
             ExpirationYear = npc.ExpirationYear;
-            FullBirthdate = npc.FullBirthdate;
-            FullExpirationDate = npc.FullExpirationDate;
-            FullStreetAddress = npc.FullStreetAddress;
             ErrorTypeString = npc.ErrorTypeString;
         }
 
@@ -502,14 +478,8 @@ namespace AcceptOrDenyLibrary
             npc.StreetAddress = streetAddress[selectStreetAddress];
             npc.StreetDirection = streetAddressDirection[selectStreetDirection];
 
-            npc.FullBirthdate = npc.BirthMonth + "/" + npc.BirthDay + "/" + npc.BirthYear.ToString();
-            npc.FullStreetAddress = npc.StreetNumber + " " + npc.StreetAddress + " Street" + " " + npc.StreetDirection;
-           
-            if (npc.IsIllegal)
-            {
-                NPC.SelectIDError(npc);
-                npc.FullExpirationDate = npc.ExpirationMonth + "/" + npc.ExpirationDay + "/" + npc.ExpirationYear.ToString();
-            }
+            // npc.FullBirthdate = npc.BirthMonth + "/" + npc.BirthDay + "/" + npc.BirthYear.ToString();
+            // npc.FullStreetAddress = npc.StreetNumber + " " + npc.StreetAddress + " Street" + " " + npc.StreetDirection;
 
             return npc;
         }
@@ -589,6 +559,8 @@ namespace AcceptOrDenyLibrary
                             break;
                     }
                 } while (npc.expirationYear > date.Year || npc.expirationMonth < 1 || npc.expirationDay < 1);
+
+
             }
             else
             {
@@ -613,6 +585,8 @@ namespace AcceptOrDenyLibrary
                         }
                     }
                 } while (npc.ExpirationMonth > 12 || npc.ExpirationDay > 30);
+
+
             }
         }
 
