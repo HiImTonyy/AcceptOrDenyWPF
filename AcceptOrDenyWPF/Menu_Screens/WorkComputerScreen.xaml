@@ -37,12 +37,11 @@
             <TextBlock Text="ID Expiration" Style = "{StaticResource TextBlock}"></TextBlock>
             <Label x:Name="npcIdExpirationLbl" Content="01/01/1901" Style = "{StaticResource Label}"></Label>
             <WrapPanel Margin="0,20,0,0" Height="80">
-                <Label x:Name="acceptButton" Foreground="SeaGreen" Background="AntiqueWhite" FontWeight="Bold" FontSize="30" Width="105" Cursor="Hand" Margin="0,0,50,0" Content="Accept"></Label>
-                <Label x:Name="denyButton" Foreground="Crimson" Background="AntiqueWhite" FontWeight="Bold" FontSize="30" Width="105"  Cursor="Hand" Content="Deny"></Label>
+                <Label x:Name="acceptButton" Foreground="SeaGreen" PreviewMouseDown="MakeChoiceButton" Background="AntiqueWhite" FontWeight="Bold" FontSize="30" Width="105" Cursor="Hand" Margin="0,0,50,0" Content="Accept"></Label>
+                <Label x:Name="denyButton" Foreground="Crimson" PreviewMouseDown="MakeChoiceButton" Background="AntiqueWhite" FontWeight="Bold" FontSize="30" Width="105"  Cursor="Hand" Content="Deny"></Label>
             </WrapPanel>
             <TextBlock HorizontalAlignment="Center" Text="PEOPLE IN LINE" Style="{StaticResource TextBlock}"></TextBlock>
             <Label x:Name="peopleInLineLbl" HorizontalAlignment="Center" Content="" Style="{StaticResource Label}"></Label>
         </StackPanel>
-        <Button Click="Button_Click" Width="120" Height="50" Margin="700,0,0,0">GENERATE NPC TEST</Button>
     </Grid>
 </Page>

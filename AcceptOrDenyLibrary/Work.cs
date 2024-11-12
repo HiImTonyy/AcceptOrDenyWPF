@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Numerics;
 using System.Text;
@@ -188,23 +189,13 @@ namespace AcceptOrDenyLibrary
             Console.ResetColor();
         }
 
-        public static void MakeChoice(NPC npc, Work work)
+        public static void MakeChoice(string choice, NPC npc, Work work)
         {
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("\n-----------------------------------------------");
-            Console.WriteLine("1) Accept Entry");
-            Console.WriteLine("2) Deny Entry\n");
-
-            Console.Write("Input: ");
-            Console.ResetColor();
-
-            string choice = Console.ReadLine();
-
-            if (choice == "1" && npc.IsIllegal == false) 
+            if (choice == "accept" && npc.IsIllegal == false) 
             {
                 IncreaseCorrectJudgement(work);
             }
-            else if (choice == "2" && npc.IsIllegal == true)
+            else if (choice == "deny" && npc.IsIllegal == true)
             {
                 IncreaseCorrectJudgement(work);
             }
@@ -215,23 +206,18 @@ namespace AcceptOrDenyLibrary
 
             Console.WriteLine("Press Enter to continue...");
             Console.ReadLine();
-
-            work.CurrentLineup--;
         }
 
         public static void IncreaseCorrectJudgement(Work work)
         {
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine("Correct!");
-            Console.ResetColor();
+            Debug.WriteLine("Correct!");
             work.TodaysCorrectJudgements++;
         }
 
         public static void IncreaseIncorrectJudgement(Work work, NPC npc)
         {
             Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"Incorrect! the error was their {npc.ErrorTypeString}.");
-            Console.ResetColor();
+            Debug.WriteLine($"Incorrect! the error was their {npc.ErrorTypeString}.");
             work.TodaysIncorrectJudgements++;
         }
 

@@ -159,6 +159,7 @@ namespace AcceptOrDenyLibrary
             FullExpirationDate = this.FullExpirationDate;
             FullBirthdate = this.FullBirthdate;
             FullStreetAddress = this.FullStreetAddress;
+            ErrorTypeString = this.ErrorTypeString;
         }
 
         public NPC(NPC npc)
@@ -179,6 +180,7 @@ namespace AcceptOrDenyLibrary
             FullBirthdate = npc.FullBirthdate;
             FullExpirationDate = npc.FullExpirationDate;
             FullStreetAddress = npc.FullStreetAddress;
+            ErrorTypeString = npc.ErrorTypeString;
         }
 
         public NPC GenerateNPC()
@@ -503,6 +505,11 @@ namespace AcceptOrDenyLibrary
             npc.FullBirthdate = npc.BirthMonth + "/" + npc.BirthDay + "/" + npc.BirthYear.ToString();
             npc.FullExpirationDate = npc.ExpirationMonth + "/" + npc.ExpirationDay + "/" + npc.ExpirationYear.ToString();
             npc.FullStreetAddress = npc.StreetNumber + " " + npc.StreetAddress + " Street" + " " + npc.StreetDirection;
+           
+            if (npc.IsIllegal)
+            {
+                NPC.SelectIDError(npc);
+            }
 
             return npc;
         }

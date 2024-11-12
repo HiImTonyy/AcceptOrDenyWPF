@@ -26,7 +26,7 @@ namespace AcceptOrDenyWPF.Menu_Screens
         private Player player;
         private Work work;
         private NpcIDWindow npcIDWindow;
-
+        private NPC npc;
 
         public WorkComputerScreen(Bills bill, Player player, Work work)
         {
@@ -34,7 +34,8 @@ namespace AcceptOrDenyWPF.Menu_Screens
             this.bill = bill;
             this.player = player;
             this.work = work;
-            NPC npc = new NPC().GenerateNPC();
+
+            npc = new NPC().GenerateNPC();
             NPC npcComputerInfo = new NPC(npc);
 
             if (npc.IsIllegal) { NPC.SelectIDError(npc); }
@@ -55,12 +56,25 @@ namespace AcceptOrDenyWPF.Menu_Screens
             peopleInLineLbl.Content = work.CurrentLineup;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void MakeChoiceButton(object sender, RoutedEventArgs e)
         {
-            NPC npc = new NPC().GenerateNPC();
+            string choice = "null";
+
+            Label button_click = (Label)sender;
+
+            if (button_click.Name == "acceptButton") { choice = "accept"; }
+            else if (button_click.Name == "denyButton") { choice = "deny"; }
+
+            Work.MakeChoice(choice, npc, work);
+
+            GenerateNPC(npc);
+        }
+
+        private void GenerateNPC(NPC npc)
+        {
+            this.npc = new NPC().GenerateNPC();
             NPC npcComputerInfo = new NPC(npc);
 
-            if (npc.IsIllegal) { NPC.SelectIDError(npc); }
             if (npc.ErrorType == (int)Logic.IDErrorType.ExpirationDate)
             {
                 npcComputerInfo = new NPC(npc);
@@ -68,10 +82,10 @@ namespace AcceptOrDenyWPF.Menu_Screens
 
             UpdateNPCData(npc, npcComputerInfo);
 
-            
+
             if (npcIDWindow != null && npcIDWindow.IsVisible)
             {
-                npcIDWindow.UpdateNPCData(npc); 
+                npcIDWindow.UpdateNPCData(npc);
             }
         }
 
