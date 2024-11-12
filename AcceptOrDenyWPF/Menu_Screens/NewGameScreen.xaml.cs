@@ -29,9 +29,16 @@ namespace AcceptOrDenyWPF.Menu_Screens
 
         private void StartNewGame(object sender, MouseButtonEventArgs e)
         {
-            player.FirstName = firstNameText.Text;
-            player.LastName = lastNameText.Text;
-            NavigationService.Navigate(new HomeScreen(bill, player, work));        
+            if (firstNameText.Text == "" || lastNameText.Text == "")
+            {
+                errorMessageText.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                player.FirstName = firstNameText.Text;
+                player.LastName = lastNameText.Text;
+                NavigationService.Navigate(new HomeScreen(bill, player, work));
+            }     
         }
     }
 }

@@ -12,9 +12,9 @@
     <Grid>
         <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center" Width="400">
             <Label Foreground="AliceBlue" FontWeight="Bold" FontSize="45">First Name</Label>
-            <TextBox  x:Name="firstNameText" FontSize="45"></TextBox>
+            <TextBox  x:Name="firstNameText" Text="" FontSize="45"></TextBox>
             <Label Margin="0,60,0,0" Foreground="AliceBlue" FontWeight="Bold" FontSize="45">Last Name</Label>
-            <TextBox x:Name="lastNameText" FontSize="45"></TextBox>
+            <TextBox x:Name="lastNameText" Text="" FontSize="45"></TextBox>
             <Label
                 x:Name="StartNewGameButton"
                 Content="Continue"
@@ -30,6 +30,7 @@
                 PreviewMouseDown="StartNewGame"
                 >
             </Label>
+            <TextBlock x:Name="errorMessageText" Margin="0,20,0,0" Visibility="Hidden" Foreground="Crimson" HorizontalAlignment="Center" FontSize="25" Text="Neither box can be empty!"></TextBlock>
         </StackPanel>
     </Grid>
 </Page>

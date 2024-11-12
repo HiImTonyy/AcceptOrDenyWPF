@@ -65,14 +65,20 @@ namespace AcceptOrDenyWPF.Menu_Screens
             if (button_click.Name == "acceptButton") { choice = "accept"; }
             else if (button_click.Name == "denyButton") { choice = "deny"; }
 
-            Work.MakeChoice(choice, npc, work);
-
-            GenerateNPC(npc);
+            bool isWrongJudgement = Work.MakeChoice(choice, npc, work);
+            if (isWrongJudgement)
+            {
+                wrongAnswerLbl.Content = wrongAnswerLbl.Content + " " + npc.ErrorTypeString;
+                wrongAnswerLbl.Visibility = Visibility.Visible;
+                nextPersonLbl.Visibility = Visibility.Visible;
+                acceptButton.Visibility = Visibility.Hidden;
+                denyButton.Visibility = Visibility.Hidden;
+            }
         }
 
-        private void GenerateNPC(NPC npc)
+        private void NextPersonButtonClick(object sender, MouseButtonEventArgs e)
         {
-            this.npc = new NPC().GenerateNPC();
+            npc = new NPC().GenerateNPC();
             NPC npcComputerInfo = new NPC(npc);
 
             if (npc.ErrorType == (int)Logic.IDErrorType.ExpirationDate)
@@ -87,6 +93,11 @@ namespace AcceptOrDenyWPF.Menu_Screens
             {
                 npcIDWindow.UpdateNPCData(npc);
             }
+            nextPersonLbl.Visibility = Visibility.Hidden;
+            wrongAnswerLbl.Visibility = Visibility.Hidden;
+            wrongAnswerLbl.Content = "Incorrect! the error was their";
+            acceptButton.Visibility = Visibility.Visible;
+            denyButton.Visibility = Visibility.Visible;
         }
 
         public void UpdateNPCData(NPC npc, NPC npcComputerInfo)

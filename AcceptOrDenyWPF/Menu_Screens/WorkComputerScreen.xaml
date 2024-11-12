@@ -23,7 +23,11 @@
     </Page.Resources>
 
     <Grid>
-        <StackPanel VerticalAlignment="Top" HorizontalAlignment="Center">
+        <StackPanel HorizontalAlignment="Right" >
+            <Label x:Name="wrongAnswerLbl" FontSize="23" Foreground="Crimson" Visibility="Hidden" FontWeight="bold" Content="Incorrect! the error was their"></Label>
+            <Label x:Name="nextPersonLbl" Width="105" Height="35" Visibility="Hidden" PreviewMouseDown="NextPersonButtonClick" Foreground="white" Cursor="Hand" BorderBrush="Azure" BorderThickness="2" FontSize="15" Content="Next Person" ></Label>
+        </StackPanel>
+        <StackPanel VerticalAlignment="Top"  HorizontalAlignment="Center">
             <TextBlock Text="First Name" Style = "{StaticResource TextBlock}"></TextBlock>
             <Label x:Name="npcFirstNameLbl" Content="Johnny" Style = "{StaticResource Label}"></Label>
             <TextBlock Text="Last Name" Style = "{StaticResource TextBlock}"></TextBlock>

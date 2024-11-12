@@ -189,23 +189,23 @@ namespace AcceptOrDenyLibrary
             Console.ResetColor();
         }
 
-        public static void MakeChoice(string choice, NPC npc, Work work)
+        public static bool MakeChoice(string choice, NPC npc, Work work)
         {
             if (choice == "accept" && npc.IsIllegal == false) 
             {
                 IncreaseCorrectJudgement(work);
+               return false;
             }
             else if (choice == "deny" && npc.IsIllegal == true)
             {
                 IncreaseCorrectJudgement(work);
+                return false;
             }
             else
             {
                 IncreaseIncorrectJudgement(work, npc);
+                return true;
             }
-
-            Console.WriteLine("Press Enter to continue...");
-            Console.ReadLine();
         }
 
         public static void IncreaseCorrectJudgement(Work work)
@@ -214,11 +214,11 @@ namespace AcceptOrDenyLibrary
             work.TodaysCorrectJudgements++;
         }
 
-        public static void IncreaseIncorrectJudgement(Work work, NPC npc)
+        public static bool IncreaseIncorrectJudgement(Work work, NPC npc)
         {
-            Console.ForegroundColor = ConsoleColor.Red;
             Debug.WriteLine($"Incorrect! the error was their {npc.ErrorTypeString}.");
             work.TodaysIncorrectJudgements++;
+            return true;
         }
 
         public static void EndDayScreen(Bills bill, Player player, Work work)
