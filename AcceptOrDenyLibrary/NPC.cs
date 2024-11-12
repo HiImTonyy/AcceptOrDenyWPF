@@ -503,12 +503,12 @@ namespace AcceptOrDenyLibrary
             npc.StreetDirection = streetAddressDirection[selectStreetDirection];
 
             npc.FullBirthdate = npc.BirthMonth + "/" + npc.BirthDay + "/" + npc.BirthYear.ToString();
-            npc.FullExpirationDate = npc.ExpirationMonth + "/" + npc.ExpirationDay + "/" + npc.ExpirationYear.ToString();
             npc.FullStreetAddress = npc.StreetNumber + " " + npc.StreetAddress + " Street" + " " + npc.StreetDirection;
            
             if (npc.IsIllegal)
             {
                 NPC.SelectIDError(npc);
+                npc.FullExpirationDate = npc.ExpirationMonth + "/" + npc.ExpirationDay + "/" + npc.ExpirationYear.ToString();
             }
 
             return npc;
@@ -588,7 +588,7 @@ namespace AcceptOrDenyLibrary
                             npc.ExpirationYear = date.Year - Logic.RollRandomNumber(1, 3);
                             break;
                     }
-                } while (npc.expirationMonth < 1 || npc.expirationDay < 1);
+                } while (npc.expirationYear > date.Year || npc.expirationMonth < 1 || npc.expirationDay < 1);
             }
             else
             {
