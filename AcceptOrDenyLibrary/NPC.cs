@@ -25,6 +25,9 @@ namespace AcceptOrDenyLibrary
         private bool isIllegal;
         private int errorType;
         private string errorTypeString;
+        private string fullExpirationDate;
+        private string fullBirthdate;
+        private string fullStreetAddress;
 
         public string FirstName
         {
@@ -120,6 +123,24 @@ namespace AcceptOrDenyLibrary
             set { errorTypeString = value; }
         }
 
+        public string FullExpirationDate
+        {
+            get { return fullExpirationDate; }
+            set { fullExpirationDate = value; }
+        }
+
+        public string FullBirthdate
+        {
+            get { return fullBirthdate; }
+            set { fullBirthdate = value; }
+        }
+
+        public string FullStreetAddress
+        {
+            get { return fullStreetAddress; }
+            set { fullStreetAddress = value; }
+        }
+
         public NPC()
         {
             FirstName = this.FirstName;
@@ -135,6 +156,9 @@ namespace AcceptOrDenyLibrary
             ExpirationMonth = this.ExpirationMonth;
             ExpirationDay = this.ExpirationDay;
             ExpirationYear = this.ExpirationYear;
+            FullExpirationDate = this.FullExpirationDate;
+            FullBirthdate = this.FullBirthdate;
+            FullStreetAddress = this.FullStreetAddress;
         }
 
         public NPC(NPC npc)
@@ -152,6 +176,9 @@ namespace AcceptOrDenyLibrary
             ExpirationMonth = npc.ExpirationMonth;
             ExpirationDay = npc.ExpirationDay;
             ExpirationYear = npc.ExpirationYear;
+            FullBirthdate = npc.FullBirthdate;
+            FullExpirationDate = npc.FullExpirationDate;
+            FullStreetAddress = npc.FullStreetAddress;
         }
 
         public NPC GenerateNPC()
@@ -472,6 +499,11 @@ namespace AcceptOrDenyLibrary
             npc.StreetNumber = selectStreetNumber;
             npc.StreetAddress = streetAddress[selectStreetAddress];
             npc.StreetDirection = streetAddressDirection[selectStreetDirection];
+
+            npc.FullBirthdate = npc.BirthMonth + "/" + npc.BirthDay + "/" + npc.BirthYear.ToString();
+            npc.FullExpirationDate = npc.ExpirationMonth + "/" + npc.ExpirationDay + "/" + npc.ExpirationYear.ToString();
+            npc.FullStreetAddress = npc.StreetNumber + " " + npc.StreetAddress + " Street" + " " + npc.StreetDirection;
+
             return npc;
         }
 

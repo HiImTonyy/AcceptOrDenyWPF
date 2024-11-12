@@ -135,12 +135,12 @@ namespace AcceptOrDenyLibrary
             moneyGained = 0;
         }
 
-        public static void Working(Bills bill, Player player, Work work)
+        /*public static void Working(Bills bill, Player player, Work work)
         {
             do
             {
                 Console.Clear();
-                NPC npc = new NPC().GenerateNPC();
+                NPC npc = new NPC().GenerateNPC(npc);
                 NPC npcComputerInfo = new NPC(npc);
 
                 if (npc.IsIllegal) { NPC.SelectIDError(npc); }
@@ -161,6 +161,7 @@ namespace AcceptOrDenyLibrary
             Console.Clear();
             EndDayScreen(bill, player, work);
         }
+        */
 
         public static void HeaderScreen(Work work, Player player)
         {

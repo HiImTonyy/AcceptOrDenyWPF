@@ -8,6 +8,7 @@
         Title="Accept or Deny - ID" Height="310" Width="675"
         Background="LightGray"
         WindowStartupLocation="Manual"
+        ResizeMode="NoResize"
         Left="560" Top="75">
 
     <Window.Resources>

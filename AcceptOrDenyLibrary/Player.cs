@@ -68,14 +68,14 @@
                 switch (userInput)
                 {
                     case "1":
-                        Work.Working(bill, player, work);
+                     //   Work.Working(bill, player, work);
                         Console.ResetColor();
                         break;
                     case "3":
                         Logic.SaveGame(bill, player, work);
                         break;
                     case "4":
-                        Logic.GameInfo(bill, player, work);
+                  //      Logic.GameInfo(bill, player, work);
                         break;
                 }
             }

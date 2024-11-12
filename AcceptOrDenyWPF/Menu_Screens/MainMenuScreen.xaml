@@ -44,13 +44,6 @@
                  Cursor="Hand"
                 >Game Info
             </Button>
-            <Button 
-               Click="MainMenuButtonClick"
-               FontSize="20"
-               x:Name="TEST"
-                Cursor="Hand"
-               >TEST
-            </Button>
         </StackPanel>
         <Frame
             Name="MainWindowFrame"

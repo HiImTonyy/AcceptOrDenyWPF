@@ -46,14 +46,9 @@ namespace AcceptOrDenyWPF.Menu_Screens
             switch (button_click.Name)
             {
                 case "goToWork":
-                    WorkComputerScreen workComputerScreen = new WorkComputerScreen(bill, player, work);
                     NavigationService.Navigate(new WorkComputerScreen(bill, player, work));
-                    NpcIDWindow npcIDWindow = new NpcIDWindow();
-                    npcIDWindow.Show();
-                    //WORK
                     break;
                 case "showStats":
-                    PlayerStatsScreen PlayerStatsScreen = new PlayerStatsScreen(bill, player, work);
                     NavigationService.Navigate(new PlayerStatsScreen(bill, player, work));
                     break;
                 case "saveGame":

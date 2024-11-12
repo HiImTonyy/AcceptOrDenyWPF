@@ -1,6 +1,8 @@
-﻿using System;
+﻿using AcceptOrDenyLibrary;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -19,9 +21,21 @@ namespace AcceptOrDenyWPF
     /// </summary>
     public partial class NpcIDWindow : Window
     {
-        public NpcIDWindow()
+        public NpcIDWindow(NPC npc)
         {
             InitializeComponent();
+
+            UpdateNPCData(npc);
+        }
+
+        public void UpdateNPCData(NPC npc)
+        {
+            npcFirstNameLbl.Content = npc.FirstName;
+            npcLastNameLbl.Content = npc.LastName;
+            npcDateOfBirthLbl.Content = npc.FullBirthdate;
+            npcGenderLbl.Content = npc.Gender;
+            npcStreetAddressLbl.Content = npc.FullStreetAddress;
+            npcIdExpirationLbl.Content = npc.FullExpirationDate;
         }
     }
 }
