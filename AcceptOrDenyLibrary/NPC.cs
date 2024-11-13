@@ -404,56 +404,6 @@ namespace AcceptOrDenyLibrary
             streetAddressDirection.Add("South");
             streetAddressDirection.Add("West");
 
-            List<string> LikesAndDislikes = new List<string>();
-
-            LikesAndDislikes.Add("Books");
-            LikesAndDislikes.Add("People");
-            LikesAndDislikes.Add("Guns");
-            LikesAndDislikes.Add("Cats");
-            LikesAndDislikes.Add("Dogs");
-            LikesAndDislikes.Add("Spiders");
-            LikesAndDislikes.Add("Bugs");
-            LikesAndDislikes.Add("The Ocean");
-            LikesAndDislikes.Add("Rain");
-            LikesAndDislikes.Add("The Sun");
-            LikesAndDislikes.Add("Children");
-            LikesAndDislikes.Add("Religion");
-            LikesAndDislikes.Add("Soda");
-            LikesAndDislikes.Add("Chocolate");
-            LikesAndDislikes.Add("Pizza");
-            LikesAndDislikes.Add("Weapons");
-            LikesAndDislikes.Add("Pop-music");
-            LikesAndDislikes.Add("Rock Music");
-            LikesAndDislikes.Add("Insects");
-            LikesAndDislikes.Add("Sports");
-            LikesAndDislikes.Add("Small-Talk");
-            LikesAndDislikes.Add("Exercise");
-            LikesAndDislikes.Add("Formal Wear");
-            LikesAndDislikes.Add("Social Media");
-            LikesAndDislikes.Add("Cars");
-            LikesAndDislikes.Add("Trucks");
-            LikesAndDislikes.Add("Christmas");
-            LikesAndDislikes.Add("Halloween");
-            LikesAndDislikes.Add("Summer");
-            LikesAndDislikes.Add("Winter");
-            LikesAndDislikes.Add("Horror Movies");
-            LikesAndDislikes.Add("RomComs");
-            LikesAndDislikes.Add("Thrillers");
-            LikesAndDislikes.Add("Handshakes");
-            LikesAndDislikes.Add("Technology");
-            LikesAndDislikes.Add("Sweet Things");
-            LikesAndDislikes.Add("Salty Things");
-            LikesAndDislikes.Add("Sour Things");
-            LikesAndDislikes.Add("Spicy Things");
-            LikesAndDislikes.Add("Competitive Games");
-            LikesAndDislikes.Add("RPG Games");
-            LikesAndDislikes.Add("FPS Games");
-            LikesAndDislikes.Add("MMO Games");
-            LikesAndDislikes.Add("Horror Games");
-            LikesAndDislikes.Add("Lectures");
-            LikesAndDislikes.Add("Texting");
-            LikesAndDislikes.Add("Working");
-
             int selectLastName = Logic.RollRandomNumber(0, 50);
 
             npc.BirthMonth = Logic.RollRandomNumber(1, 13);

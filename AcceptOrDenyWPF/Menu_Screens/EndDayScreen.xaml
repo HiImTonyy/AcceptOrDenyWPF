@@ -1,0 +1,67 @@
+﻿<Page x:Class="AcceptOrDenyWPF.Menu_Screens.EndDayScreen"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:AcceptOrDenyWPF.Menu_Screens"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="1200"
+      Title="Accept or Deny - Working"
+      Background="Black">
+
+    <Page.Resources>
+        <Style x:Key="TextBlock" TargetType="TextBlock">
+            <Setter Property = "FontSize" Value="25"/>
+            <Setter Property = "FontWeight" Value="ExtraBold"></Setter>
+            <Setter Property = "Foreground" Value="LimeGreen"></Setter>
+            <Setter Property = "HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+        <Style x:Key="Label" TargetType="Label">
+            <Setter Property = "FontSize" Value="20"></Setter>
+            <Setter Property = "Foreground" Value="LawnGreen"></Setter>
+            <Setter Property = "HorizontalAlignment" Value="Center"></Setter>
+        </Style>
+    </Page.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="550"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <!--Workday Results-->
+        <StackPanel HorizontalAlignment="Center">
+            <TextBlock Foreground="MediumPurple" Margin="0,0,0,15" FontSize="50" Text="Workday Results" Style="{StaticResource TextBlock}" ></TextBlock>
+            <TextBlock Text="Todays Wage" Style="{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="dayWageLbl" Content="" Style="{StaticResource Label}"></Label>
+            <TextBlock Text="Correct Judgements" Style="{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="correctJudgementsLbl" Content="" Style="{StaticResource Label}"></Label>
+            <TextBlock Text="Bonus Money" Style="{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="bonusMoneyLbl" Content="" Style="{StaticResource Label}"></Label>
+            <TextBlock Foreground="Crimson" Text="Incorrect Judgements" Style="{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="incorrectJudgedmentsLbl" Foreground="Crimson" Content="" Style="{StaticResource Label}"></Label>
+            <TextBlock Foreground="Crimson" Text="Money Docked" Style="{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="moneyDockedLbl" Foreground="Crimson" Content="" Style="{StaticResource Label}"></Label>
+            <TextBlock Text="Money Earned Today" Style="{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="moneyEarneddLbl" Content="" Style="{StaticResource Label}"></Label>
+        </StackPanel>
+        <!--Bills-->
+        <StackPanel Grid.Column="1">
+            <TextBlock Foreground="MediumPurple" Margin="0,0,0,15" FontSize="50" Text="Bills" Style="{StaticResource TextBlock}"></TextBlock>
+            <TextBlock Foreground="AliceBlue" Text="Days till Food Bill" Style="{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="foodBillLbl" Content="" Style="{StaticResource Label}"></Label>
+            <TextBlock Foreground="AliceBlue" Text="Days till Electric Bill" Style="{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="electricBillLbl" Content="" Style="{StaticResource Label}"></Label>
+            <TextBlock Foreground="AliceBlue" Text="Days till Rent Bill" Style="{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="rentBillLbl" Content="" Style="{StaticResource Label}"></Label>
+            <TextBlock Foreground="Crimson" Text="Total Bill Amount" Style="{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="totalBillLbl" Foreground="Crimson" Content="" Style="{StaticResource Label}"></Label>
+            <!--Total Balance-->
+        </StackPanel>
+        <TextBlock x:Name="totalBalanceLbl" Grid.Row="1" Grid.ColumnSpan="2" Text="" Style="{StaticResource TextBlock}"></TextBlock>
+    </Grid>
+</Page>

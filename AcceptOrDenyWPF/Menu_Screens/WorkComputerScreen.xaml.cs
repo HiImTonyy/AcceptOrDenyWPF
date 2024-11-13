@@ -35,6 +35,8 @@ namespace AcceptOrDenyWPF.Menu_Screens
             this.player = player;
             this.work = work;
 
+            EndDay();
+
             npc = new NPC().GenerateNPC();
             NPC npcComputerInfo = new NPC(npc);
 
@@ -72,8 +74,18 @@ namespace AcceptOrDenyWPF.Menu_Screens
             bool isWrongJudgement = Work.MakeChoice(choice, npc, work);
             if (isWrongJudgement)
             {
-                wrongAnswerLbl.Content = wrongAnswerLbl.Content + " " + npc.ErrorTypeString;
-                wrongAnswerLbl.Visibility = Visibility.Visible;
+                choiceAnswerLbl.Foreground = Brushes.Crimson;
+                choiceAnswerLbl.Content = choiceAnswerLbl.Content + " " + npc.ErrorTypeString;
+                choiceAnswerLbl.Visibility = Visibility.Visible;
+                nextPersonLbl.Visibility = Visibility.Visible;
+                acceptButton.Visibility = Visibility.Hidden;
+                denyButton.Visibility = Visibility.Hidden;
+            }
+            else
+            {
+                choiceAnswerLbl.Foreground = Brushes.ForestGreen;
+                choiceAnswerLbl.Content = "Correct!";
+                choiceAnswerLbl.Visibility = Visibility.Visible;
                 nextPersonLbl.Visibility = Visibility.Visible;
                 acceptButton.Visibility = Visibility.Hidden;
                 denyButton.Visibility = Visibility.Hidden;
@@ -100,8 +112,8 @@ namespace AcceptOrDenyWPF.Menu_Screens
                 npcIDWindow.UpdateNPCData(npc);
             }
             nextPersonLbl.Visibility = Visibility.Hidden;
-            wrongAnswerLbl.Visibility = Visibility.Hidden;
-            wrongAnswerLbl.Content = "Incorrect! the error was their";
+            choiceAnswerLbl.Visibility = Visibility.Hidden;
+            choiceAnswerLbl.Content = "Incorrect! the error was their";
             acceptButton.Visibility = Visibility.Visible;
             denyButton.Visibility = Visibility.Visible;
         }
@@ -118,8 +130,30 @@ namespace AcceptOrDenyWPF.Menu_Screens
             npcIdExpirationLbl.Content = npcComputerInfo.FullExpirationDate;
             peopleInLineLbl.Content = work.CurrentLineup;
         }
+
+        // CHECK IF CURRENT LINEUP IS 0
+
+        private void EndDay()
+        {
+            Task.Run(async () =>
+            {
+                while (true)
+                {
+                    if (work.CurrentLineup == 0)
+                    {
+                        Application.Current.Dispatcher.Invoke(GoToEndDayScreen);
+                    }
+
+                    await Task.Delay(10); 
+                }
+            });
+        }
+
+        private void GoToEndDayScreen()
+        {
+            npcIDWindow.Close();
+            Work.TallyUpMoney(player, work);
+            NavigationService.Navigate(new EndDayScreen(bill, player, work));
+        }
     }
 }
-
-
-// FULL BIRTHDATE AND FULL STREET ADDRESS FOR ID MATCHES WITH COMPUTER SCREEN EVEN THOUGH WHEN ILLEGAL IT SHOULDN'T BE.
