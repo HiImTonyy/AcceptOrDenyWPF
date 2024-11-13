@@ -34,7 +34,7 @@
             <RowDefinition></RowDefinition>
         </Grid.RowDefinitions>
         <!--Workday Results-->
-        <StackPanel HorizontalAlignment="Center">
+        <StackPanel x:Name="workdayPanel" HorizontalAlignment="Center">
             <TextBlock Foreground="MediumPurple" Margin="0,0,0,15" FontSize="50" Text="Workday Results" Style="{StaticResource TextBlock}" ></TextBlock>
             <TextBlock Text="Todays Wage" Style="{StaticResource TextBlock}"></TextBlock>
             <Label x:Name="dayWageLbl" Content="" Style="{StaticResource Label}"></Label>
@@ -50,7 +50,7 @@
             <Label x:Name="moneyEarneddLbl" Content="" Style="{StaticResource Label}"></Label>
         </StackPanel>
         <!--Bills-->
-        <StackPanel Grid.Column="1">
+        <StackPanel x:Name="billsPanel" Grid.Column="1">
             <TextBlock Foreground="MediumPurple" Margin="0,0,0,15" FontSize="50" Text="Bills" Style="{StaticResource TextBlock}"></TextBlock>
             <TextBlock Foreground="AliceBlue" Text="Days till Food Bill" Style="{StaticResource TextBlock}"></TextBlock>
             <Label x:Name="foodBillLbl" Content="" Style="{StaticResource Label}"></Label>
@@ -64,6 +64,7 @@
         </StackPanel>
         <TextBlock x:Name="totalBalanceLbl" Grid.Row="1" Grid.ColumnSpan="2" Text="" Style="{StaticResource TextBlock}"></TextBlock>
         <TextBlock x:Name="bossMessageLbl" Foreground="Yellow" Grid.Row="2" Grid.ColumnSpan="2" Text="Boss: " HorizontalAlignment="Left" Style="{StaticResource TextBlock}"></TextBlock>
-        <Button Width="90" Height="40" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Content="Continue" FontSize="20" Click="Button_Click"></Button>
+        <Button Width="90" Height="40" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Content="Continue" FontSize="20" x:Name="regularButton" Click="Button_Click"></Button>
+        <Button Width="90" Height="40" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Content="" FontSize="20" Visibility="Hidden" x:Name="promotionButton" Click="GoHomeButton" ></Button>
     </Grid>
 </Page>

@@ -36,13 +36,9 @@
         <WrapPanel Grid.Row="0"
                    x:Name="homeHeader"
                    Background="LightSkyBlue">
-            <TextBlock Text="Player Name" Style = "{StaticResource headerTextBlock}"></TextBlock>
-            <Label x:Name="playerFirstNameLbl" Content="" Style = "{StaticResource headerLabel}"></Label>
-            <Label x:Name="playerLastNameLbl" Content="" Style = "{StaticResource headerLabel}"></Label>
-            <TextBlock Text="Balance" Style = "{StaticResource headerTextBlock}"></TextBlock>
-            <Label x:Name="playerMoneyLbl" Content="" Style = "{StaticResource headerLabel}"></Label>
-            <TextBlock Text="Current Date" Style = "{StaticResource headerTextBlock}"></TextBlock>
-            <Label x:Name="currentDateLbl" Content="" Style = "{StaticResource headerLabel}"></Label>
+            <TextBlock x:Name="playerNameLbl" Text="" Style = "{StaticResource headerTextBlock}"></TextBlock>
+            <TextBlock x:Name="playerMoneyLbl" Text="" Style = "{StaticResource headerTextBlock}"></TextBlock>
+            <TextBlock x:Name="currentDateLbl" Text="" Style = "{StaticResource headerTextBlock}"></TextBlock>
         </WrapPanel>
         <!--Home Buttons-->
         <StackPanel Grid.Row="1" VerticalAlignment="Center" HorizontalAlignment="Center">

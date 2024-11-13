@@ -32,10 +32,9 @@ namespace AcceptOrDenyWPF.Menu_Screens
             this.player = player;
             this.work = work;
 
-            currentDateLbl.Content = DateTime.Now.ToString("MM/dd/yyyy");
-            playerFirstNameLbl.Content = player.FirstName;
-            playerLastNameLbl.Content = player.LastName;;
-            playerMoneyLbl.Content = player.Money;
+            playerNameLbl.Text = "Name: " + player.FirstName + " " + player.LastName;
+            playerMoneyLbl.Text = "Balance: " + "$" +  player.Money;
+            currentDateLbl.Text = "Current Date: " + DateTime.Now.ToString("MM/dd/yyyy");
         }
 
         private void HomeMenuButtonClick(object sender, RoutedEventArgs e)

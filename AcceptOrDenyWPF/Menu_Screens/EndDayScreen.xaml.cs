@@ -1,6 +1,7 @@
 ﻿using AcceptOrDenyLibrary;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -61,6 +62,61 @@ namespace AcceptOrDenyWPF.Menu_Screens
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            CheckForPromotion(player, work);
+        }
+
+        public void CheckForPromotion(Player player, Work work)
+        {
+            int wageThen = work.DayWage;
+
+            if (work.WeeksIncorrectJudgements == 0 && work.CurrentDay >= 7)
+            {
+
+                work.DayWage = work.DayWage + 10;
+
+                bossMessageLbl.Text = ($"Boss: Congratulations {player.FirstName}, I'm promoting you. your daily wage is going from ${wageThen} to ${work.DayWage}");
+
+                work.CurrentDay = 1;
+                work.WeeksCorrectJudgements = 0;
+
+                workdayPanel.Visibility = Visibility.Hidden;
+                billsPanel.Visibility = Visibility.Hidden;
+                totalBalanceLbl.Visibility = Visibility.Hidden;
+                regularButton.Visibility = Visibility.Hidden;
+                promotionButton.Visibility = Visibility.Visible;
+            }
+            else if (work.WeeksIncorrectJudgements >= 17 && work.CurrentDay == 7)
+            {
+                work.DayWage = work.DayWage - 10;
+
+                bossMessageLbl.Text = ($" Boss: Hey fuck-nut, I'm demoting you. your daily wage is going from ${wageThen} to ${work.DayWage}!");
+
+                work.CurrentDay = 1;
+                work.WeeksIncorrectJudgements = 0;
+
+                workdayPanel.Visibility = Visibility.Hidden;
+                billsPanel.Visibility = Visibility.Hidden;
+                totalBalanceLbl.Visibility = Visibility.Hidden;
+                regularButton.Visibility = Visibility.Hidden;
+                promotionButton.Visibility = Visibility.Visible;
+            }
+            else if (work.CurrentDay == 7)
+            {
+                work.CurrentDay = 1;
+                work.WeeksCorrectJudgements = 0;
+                work.WeeksIncorrectJudgements = 0;
+                work.CurrentDay = work.CurrentDay + 1;
+                NavigationService.Navigate(new HomeScreen(bill, player, work));
+            }
+            else
+            {
+                work.CurrentDay++;
+                NavigationService.Navigate(new HomeScreen(bill, player, work));
+            }
+        }
+
+        private void GoHomeButton(object sender, RoutedEventArgs e)
         {
             NavigationService.Navigate(new HomeScreen(bill, player, work));
         }
