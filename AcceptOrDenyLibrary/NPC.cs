@@ -428,9 +428,6 @@ namespace AcceptOrDenyLibrary
             npc.StreetAddress = streetAddress[selectStreetAddress];
             npc.StreetDirection = streetAddressDirection[selectStreetDirection];
 
-            // npc.FullBirthdate = npc.BirthMonth + "/" + npc.BirthDay + "/" + npc.BirthYear.ToString();
-            // npc.FullStreetAddress = npc.StreetNumber + " " + npc.StreetAddress + " Street" + " " + npc.StreetDirection;
-
             return npc;
         }
 

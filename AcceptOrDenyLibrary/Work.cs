@@ -136,58 +136,7 @@ namespace AcceptOrDenyLibrary
             moneyGained = 0;
         }
 
-        /*public static void Working(Bills bill, Player player, Work work)
-        {
-            do
-            {
-                Console.Clear();
-                NPC npc = new NPC().GenerateNPC(npc);
-                NPC npcComputerInfo = new NPC(npc);
 
-                if (npc.IsIllegal) { NPC.SelectIDError(npc); }
-                if (npc.ErrorType == (int)Logic.IDErrorType.ExpirationDate)
-                {
-                    npcComputerInfo = new NPC(npc);
-                }
-
-                HeaderScreen(work, player);
-
-                ShowMonitor(npcComputerInfo);
-
-                NPC.ShowNpcID(npc);
-
-                MakeChoice(npc, work);
-            } while (work.CurrentLineup > 0);
-
-            Console.Clear();
-            EndDayScreen(bill, player, work);
-        }
-        */
-
-        public static void HeaderScreen(Work work, Player player)
-        {
-            DateTime localDate = DateTime.Now;
-
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            // 3 spaces for the | 
-            Console.WriteLine($"People in line: {work.CurrentLineup}   |   Days Employed: {player.DaysEmployed}   |   Current Day: {localDate.Month}/{localDate.Day}/{localDate.Year}   |   Name: {player.FirstName} {player.LastName}");
-            Console.WriteLine("------------------------------------------------------------------------------------------------------\n");
-            Console.ResetColor();
-        }
-
-        public static void ShowMonitor(NPC npcComputerInfo)
-        {
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine("COMPUTER SCREEN");
-            Console.WriteLine("===============");
-            Console.WriteLine($"First Name: {npcComputerInfo.FirstName}");
-            Console.WriteLine($"Last Name: {npcComputerInfo.LastName}");
-            Console.WriteLine($"Birthday: {npcComputerInfo.BirthMonth}/{npcComputerInfo.BirthDay}/{npcComputerInfo.BirthYear}");
-            Console.WriteLine($"Gender: {npcComputerInfo.Gender}");
-            Console.WriteLine($"Home Address: {npcComputerInfo.StreetNumber} {npcComputerInfo.StreetAddress} street {npcComputerInfo.StreetDirection}");
-            Console.WriteLine($"Expiration Date: {npcComputerInfo.ExpirationMonth}/{npcComputerInfo.ExpirationDay}/{npcComputerInfo.ExpirationYear}\n");
-            Console.ResetColor();
-        }
 
         public static bool MakeChoice(string choice, NPC npc, Work work)
         {
@@ -221,7 +170,7 @@ namespace AcceptOrDenyLibrary
             return true;
         }
 
-        public static void EndDayScreen(Bills bill, Player player, Work work)
+       /* public static void EndDayScreen(Bills bill, Player player, Work work)
         {
             TallyUpMoney(player, work);
 
@@ -268,7 +217,6 @@ namespace AcceptOrDenyLibrary
                 work.WeeksIncorrectJudgements = work.WeeksIncorrectJudgements + work.TodaysIncorrectJudgements;
                 work.TodaysCorrectJudgements = 0;
                 work.TodaysIncorrectJudgements = 0;
-                player.DaysEmployed = player.DaysEmployed + 1;
 
                 CheckForPromotion(player, work);
 
@@ -282,7 +230,7 @@ namespace AcceptOrDenyLibrary
                 Console.ResetColor();
             }
         }
-
+       */
         public static void TallyUpMoney(Player player, Work work)
         {
             work.BonusPayTotal = work.MoneyPerCorrectChoice * work.TodaysCorrectJudgements;

@@ -68,21 +68,6 @@ namespace AcceptOrDenyLibrary
             totalBill = 0;
         }
 
-        public static void PayBillsScreen(Bills bill, Player player)
-        {
-            Console.Clear();
-            DecreaseBillDates(bill);
-            Console.WriteLine($"Days till Food Bill: {bill.FoodBillDate} (${bill.FoodCost})");
-            Console.WriteLine($"Days till Electricity Bill: {bill.ElectricityBillDate}  (${bill.ElectricityCost})");
-            Console.WriteLine($"Days till Rent Bill: {bill.RentBillDate}  (${bill.RentCost})\n");
-
-            PayBills(player, bill);
-
-            Console.WriteLine($"Total Bill Amount: {bill.TotalBill}");
-            Console.WriteLine($"Bank Balance: {player.Money}");
-            Console.ReadLine();
-        }
-
         public static void DecreaseBillDates(Bills bill)
         {
             bill.FoodBillDate = bill.FoodBillDate - 1;

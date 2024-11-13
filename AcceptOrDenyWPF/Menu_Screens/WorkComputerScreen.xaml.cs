@@ -27,6 +27,7 @@ namespace AcceptOrDenyWPF.Menu_Screens
         private Work work;
         private NpcIDWindow npcIDWindow;
         private NPC npc;
+        public bool checkedEndScreen = false;
 
         public WorkComputerScreen(Bills bill, Player player, Work work)
         {
@@ -39,6 +40,7 @@ namespace AcceptOrDenyWPF.Menu_Screens
 
             work.CurrentLineup = Logic.RollRandomNumber(5, 15);
             work.TotalLineup = work.CurrentLineup;
+            player.DaysEmployed++;
 
             npc = new NPC().GenerateNPC();
             NPC npcComputerInfo = new NPC(npc);
@@ -147,7 +149,7 @@ namespace AcceptOrDenyWPF.Menu_Screens
                     if (work.CurrentLineup == 0)
                     {
                         Application.Current.Dispatcher.Invoke(GoToEndDayScreen);
-                        cancel.Dispose();
+                        cancel.Cancel();
                     }
 
                     await Task.Delay(10); 
@@ -158,8 +160,12 @@ namespace AcceptOrDenyWPF.Menu_Screens
         private void GoToEndDayScreen()
         {
             npcIDWindow.Close();
-            Work.TallyUpMoney(player, work);
-            NavigationService.Navigate(new EndDayScreen(bill, player, work));
+            if (checkedEndScreen == true) {; }
+            else if (checkedEndScreen == false)
+            {
+                checkedEndScreen = true;
+                NavigationService.Navigate(new EndDayScreen(bill, player, work));
+            }
         }
     }
 }

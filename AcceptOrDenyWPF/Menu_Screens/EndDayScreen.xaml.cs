@@ -29,6 +29,7 @@ namespace AcceptOrDenyWPF.Menu_Screens
             this.bill = bill;
             this.player = player;
             this.work = work;
+            Work.TallyUpMoney(player, work);
 
             InitializeComponent();
             // Workday Results
@@ -57,7 +58,6 @@ namespace AcceptOrDenyWPF.Menu_Screens
             work.WeeksIncorrectJudgements = work.WeeksIncorrectJudgements + work.TodaysIncorrectJudgements;
             work.TodaysCorrectJudgements = 0;
             work.TodaysIncorrectJudgements = 0;
-            player.DaysEmployed = player.DaysEmployed + 1;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
