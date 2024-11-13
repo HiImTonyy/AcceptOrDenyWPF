@@ -43,10 +43,5 @@ namespace AcceptOrDenyWPF.Menu_Screens
                     break;
             }
         }
-
-        private void NewGame_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

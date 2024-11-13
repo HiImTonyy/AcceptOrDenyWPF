@@ -15,8 +15,8 @@ namespace AcceptOrDenyLibrary
         private int currentLineup;
         private int totalLineup;
         private double bonusPayTotal;
-        private int todaysCorrectJudgements;
-        private int todaysIncorrectJudgements;
+        public int todaysCorrectJudgements;
+        public int todaysIncorrectJudgements;
         private int weeksCorrectJudgements;
         private int weeksIncorrectJudgements;
         private int alltimeCorrectJudgements;
@@ -48,7 +48,7 @@ namespace AcceptOrDenyLibrary
         public int TotalLineup
         {
             get { return totalLineup; }
-            set { TotalLineup = value; }
+            set { totalLineup = value; }
         }
 
         public double BonusPayTotal
@@ -338,7 +338,7 @@ namespace AcceptOrDenyLibrary
             work.currentDay = work.CurrentDay + 1;
         }
 
-        public static void BossEndOfDayComment(Player player, Work work)
+        public static string BossEndOfDayComment(Player player, Work work)
         {
             string bossComment = "pizza";
             int commentSelected = 0;
@@ -400,10 +400,7 @@ namespace AcceptOrDenyLibrary
                 bossComment = badDayComments[commentSelected];
             }
 
-            Console.ForegroundColor = ConsoleColor.DarkYellow;
-            Console.WriteLine($"Boss: {bossComment}");
-            
-            Console.ResetColor();
+            return bossComment;
         }
     }
 }

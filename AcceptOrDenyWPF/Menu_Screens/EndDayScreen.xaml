@@ -60,8 +60,10 @@
             <Label x:Name="rentBillLbl" Content="" Style="{StaticResource Label}"></Label>
             <TextBlock Foreground="Crimson" Text="Total Bill Amount" Style="{StaticResource TextBlock}"></TextBlock>
             <Label x:Name="totalBillLbl" Foreground="Crimson" Content="" Style="{StaticResource Label}"></Label>
-            <!--Total Balance-->
+            <!--Bottom Stuff-->
         </StackPanel>
         <TextBlock x:Name="totalBalanceLbl" Grid.Row="1" Grid.ColumnSpan="2" Text="" Style="{StaticResource TextBlock}"></TextBlock>
+        <TextBlock x:Name="bossMessageLbl" Foreground="Yellow" Grid.Row="2" Grid.ColumnSpan="2" Text="Boss: " HorizontalAlignment="Left" Style="{StaticResource TextBlock}"></TextBlock>
+        <Button Width="90" Height="40" Grid.Row="2" Grid.ColumnSpan="2" VerticalAlignment="Bottom" Content="Continue" FontSize="20" Click="Button_Click"></Button>
     </Grid>
 </Page>

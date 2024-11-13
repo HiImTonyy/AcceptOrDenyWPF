@@ -37,6 +37,9 @@ namespace AcceptOrDenyWPF.Menu_Screens
 
             EndDay();
 
+            work.CurrentLineup = Logic.RollRandomNumber(5, 15);
+            work.TotalLineup = work.CurrentLineup;
+
             npc = new NPC().GenerateNPC();
             NPC npcComputerInfo = new NPC(npc);
 
@@ -133,6 +136,8 @@ namespace AcceptOrDenyWPF.Menu_Screens
 
         // CHECK IF CURRENT LINEUP IS 0
 
+        CancellationTokenSource cancel = new CancellationTokenSource();
+
         private void EndDay()
         {
             Task.Run(async () =>
@@ -142,6 +147,7 @@ namespace AcceptOrDenyWPF.Menu_Screens
                     if (work.CurrentLineup == 0)
                     {
                         Application.Current.Dispatcher.Invoke(GoToEndDayScreen);
+                        cancel.Dispose();
                     }
 
                     await Task.Delay(10); 
