@@ -50,7 +50,8 @@ namespace AcceptOrDenyWPF.Menu_Screens
                     NavigationService.Navigate(new PlayerStatsScreen(bill, player, work));
                     break;
                 case "saveGame":
-                    //Save Game
+                    Logic.SaveGame(bill, player, work);
+                    NavigationService.Navigate(new HomeScreen(bill, player, work));
                     break;
             }
         }

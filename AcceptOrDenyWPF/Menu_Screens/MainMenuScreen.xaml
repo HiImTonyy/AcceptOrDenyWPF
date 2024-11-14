@@ -34,6 +34,7 @@
             </Button>
             <Button FontSize="20"
                     x:Name="LoadGame"
+                    Click="MainMenuButtonClick"
                     Cursor="Hand"
                     >Load Game
             </Button>

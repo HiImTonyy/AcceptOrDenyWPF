@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Numerics;
@@ -100,12 +101,10 @@ namespace AcceptOrDenyLibrary
                 streamWrite.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(work));
             }
 
-            Console.WriteLine("Game saved!");
-            Console.WriteLine("Press Enter to contiue.");
-            Console.ReadLine();
+            Debug.WriteLine("Game saved!");
         }
 
-        public static void LoadGame(Bills bill, Player player, Work work)
+        public static bool LoadGame(ref Bills bill, ref Player player, ref Work work)
         {
             string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             string filePath = Path.Combine(path, "AcceptOrDenySave.txt");
@@ -123,25 +122,17 @@ namespace AcceptOrDenyLibrary
                 {
                     Console.ForegroundColor = ConsoleColor.Red;
                     throw new Exception("CANNOT LOAD BECAUSE THE SAVE GOT CORRUPTED!");
-                    Console.ReadLine();
+                    return false;
                 }
             }
             else
             {
-                Console.ForegroundColor= ConsoleColor.Red;
-                Console.WriteLine("NO SAVE FILE FOUND! PRESS ENTER TO CREATE A NEW ONE!");
-                Console.ReadLine();
-                Console.ResetColor();
-                NewGame(bill, player, work);
+                Debug.WriteLine("NO SAVE FILE FOUND! PRESS ENTER TO CREATE A NEW ONE!");
+                return false;
             }
-
-            Console.Clear();
-            Console.ForegroundColor = ConsoleColor.Cyan;
-            Console.WriteLine("Game Loaded!");
-            Console.WriteLine("Press Enter to continue...");
-            Console.ReadLine();
-            Console.ResetColor();
-           // Work.Working(bill, player, work);
+;
+            Debug.WriteLine("Game Loaded!");
+            return true;
         }
 
         public static void NewGame(Bills bill, Player player, Work work)

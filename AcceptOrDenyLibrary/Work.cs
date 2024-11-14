@@ -140,21 +140,23 @@ namespace AcceptOrDenyLibrary
 
         public static bool MakeChoice(string choice, NPC npc, Work work)
         {
-            if (choice == "accept" && npc.IsIllegal == false) 
+            if (choice == "accept" && npc.IsIllegal == false)
             {
                 IncreaseCorrectJudgement(work);
-               return false;
+                return false;
             }
             else if (choice == "deny" && npc.IsIllegal == true)
             {
                 IncreaseCorrectJudgement(work);
                 return false;
             }
-            else
+            else if (choice == "deny" && npc.IsIllegal == false)
             {
                 IncreaseIncorrectJudgement(work, npc);
+                npc.ErrorTypeString = "... oh wait, THEY WERE LEGAL!";
                 return true;
             }
+            else return true;
         }
 
         public static void IncreaseCorrectJudgement(Work work)
@@ -170,67 +172,6 @@ namespace AcceptOrDenyLibrary
             return true;
         }
 
-       /* public static void EndDayScreen(Bills bill, Player player, Work work)
-        {
-            TallyUpMoney(player, work);
-
-            Console.WriteLine($"Days Wage: ${work.DayWage}\n");
-
-            Console.WriteLine($"Correct Judgements: {work.TodaysCorrectJudgements}");
-            Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"Bonus Money: ${work.bonusPayTotal}");
-            Console.ResetColor();
-            Console.WriteLine($"\nIncorrect Judgements: {work.TodaysIncorrectJudgements}");
-            Console.ForegroundColor = ConsoleColor.Red;
-            Console.WriteLine($"Money Docked: ${work.MoneyLost}");
-            Console.ResetColor();
-
-            if (work.MoneyGained <= 0) { Console.ForegroundColor = ConsoleColor.Red; }
-            else { Console.ForegroundColor = ConsoleColor.Green; }
-
-            Console.WriteLine($"\nTotal money gained/lost: ${work.MoneyGained}");
-            Console.ResetColor();
-
-            Console.ForegroundColor = ConsoleColor.DarkGreen;
-            Console.WriteLine($"New bank balance: ${player.Money}\n");
-            Console.ResetColor();
-            BossEndOfDayComment(player, work);
-
-            Console.WriteLine("\nPress Enter to continue...");
-            Console.ReadLine();
-
-            Bills.PayBillsScreen(bill, player);
-
-            if (player.Money > 0)
-            {
-                Console.WriteLine("You live to work another day...");
-                Console.WriteLine("Press Enter to get back home.");
-                Console.ReadLine();
-                work.CurrentLineup = Logic.RollRandomNumber(5, 16);
-
-                // To reset some stuff and to increase some things
-
-                bill.TotalBill = 0;
-                work.AlltimeCorrectJudgements = work.AlltimeCorrectJudgements + work.todaysCorrectJudgements;
-                work.AlltimeIncorrectJudgements = work.AlltimeIncorrectJudgements + work.todaysIncorrectJudgements;
-                work.WeeksCorrectJudgements = work.WeeksCorrectJudgements + work.TodaysCorrectJudgements;
-                work.WeeksIncorrectJudgements = work.WeeksIncorrectJudgements + work.TodaysIncorrectJudgements;
-                work.TodaysCorrectJudgements = 0;
-                work.TodaysIncorrectJudgements = 0;
-
-                CheckForPromotion(player, work);
-
-                Player.Home(bill, player, work);
-            }
-            else
-            {
-                Console.ForegroundColor= ConsoleColor.Red;
-                Console.WriteLine("You went bankrupt! ALL IS LOST!");
-                Console.ReadLine();
-                Console.ResetColor();
-            }
-        }
-       */
         public static void TallyUpMoney(Player player, Work work)
         {
             work.BonusPayTotal = work.MoneyPerCorrectChoice * work.TodaysCorrectJudgements;

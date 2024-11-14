@@ -63,7 +63,27 @@ namespace AcceptOrDenyWPF.Menu_Screens
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            CheckForPromotion(player, work);
+            bool failure = false;
+
+            if (player.Money < 0) { failure = true; }
+          
+            if (failure == true)
+            {
+                workdayPanel.Visibility = Visibility.Hidden;
+                billsPanel.Visibility = Visibility.Hidden;
+                totalBalanceLbl.Visibility = Visibility.Hidden;
+                regularButton.Visibility = Visibility.Hidden;
+
+                bossMessageLbl.Foreground = new SolidColorBrush(Colors.Red);
+                bossMessageLbl.FontSize = 30;
+                bossMessageLbl.HorizontalAlignment = HorizontalAlignment.Center;
+                bossMessageLbl.Text = ($"You went bankrupt! GAME OVER.");
+            }
+
+            else if (failure == false)
+            {
+                CheckForPromotion(player, work);
+            }
         }
 
         public void CheckForPromotion(Player player, Work work)

@@ -21,11 +21,14 @@ namespace AcceptOrDenyWPF.Menu_Screens
     /// </summary>
     public partial class MainMenuScreen : Page
     {
-        
         public MainMenuScreen()
         {
             InitializeComponent();
         }
+
+        Bills bill = new Bills();
+        Player player = new Player();
+        Work work = new Work();
 
         private void MainMenuButtonClick(object sender, RoutedEventArgs e)
         {
@@ -40,6 +43,15 @@ namespace AcceptOrDenyWPF.Menu_Screens
                 case "GameInfo":
                     GameInfoScreen gameInfoScreen = new GameInfoScreen();
                     MainWindowFrame.Navigate(gameInfoScreen);
+                    break;
+                case "LoadGame":
+
+                    bool loadedCorrectly = Logic.LoadGame(ref bill, ref player, ref work);
+
+                    if (loadedCorrectly == true) 
+                    {
+                        NavigationService.Navigate(new HomeScreen(bill, player, work));
+                    }
                     break;
             }
         }
