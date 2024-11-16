@@ -43,6 +43,9 @@ namespace AcceptOrDenyWPF.Menu_Screens
             // Work Stats
             totalCorrectJudgementsLbl.Content = work.AlltimeCorrectJudgements;
             totalIncorrectJudgementsLbl.Content = work.AlltimeIncorrectJudgements;
+            correctJudgementStreakLbl.Content = work.HighestPerfectCorrectStreak;
+            incorrectJudgementStreakLbl.Content = work.HighestPerfectIncorrectStreak;
+            totalMoneyMadeLbl.Content = work.TotalMoneyMade;
 
             // Bill Stats
             foodBillCostLbl.Content = bill.FoodCost;

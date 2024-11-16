@@ -48,6 +48,13 @@
             <Label x:Name="totalCorrectJudgementsLbl" Content="" Style = "{StaticResource Label}"></Label>
             <TextBlock Text="Total Incorrect Judgements" Style = "{StaticResource TextBlock}"></TextBlock>
             <Label x:Name="totalIncorrectJudgementsLbl" Content="" Style = "{StaticResource Label}"></Label>
+            <TextBlock FontSize="24" Text="Highest Correct Judgement Streak" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="correctJudgementStreakLbl" FontSize="24" Content="" Style = "{StaticResource Label}"></Label>
+            <TextBlock FontSize="23" Text="Highest Incorrect Judgement Streak" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="incorrectJudgementStreakLbl" FontSize="23" Content="" Style = "{StaticResource Label}"></Label>
+            <TextBlock Text="Total Money Made" Style = "{StaticResource TextBlock}"></TextBlock>
+            <Label x:Name="totalMoneyMadeLbl" Content="" Style = "{StaticResource Label}"></Label>
+
         </StackPanel>
         <!--Bill related stats-->
         <StackPanel Grid.Column="2" VerticalAlignment="Top" HorizontalAlignment="Center">

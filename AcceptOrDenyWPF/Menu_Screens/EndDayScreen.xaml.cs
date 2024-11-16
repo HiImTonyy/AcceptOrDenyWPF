@@ -40,6 +40,7 @@ namespace AcceptOrDenyWPF.Menu_Screens
             incorrectJudgedmentsLbl.Content = work.TodaysIncorrectJudgements;
             moneyDockedLbl.Content = "$" + work.MoneyLost;
             moneyEarneddLbl.Content = "$" + work.MoneyGained;
+
             // Bills
             Bills.DecreaseBillDates(bill);
             foodBillLbl.Content = bill.FoodBillDate;
@@ -50,6 +51,8 @@ namespace AcceptOrDenyWPF.Menu_Screens
             // Bottom Stuff
             totalBalanceLbl.Text = "Total Balance: $" + player.Money;
             bossMessageLbl.Text = bossMessageLbl.Text + Work.BossEndOfDayComment(player, work);
+
+            work.TotalMoneyMade = work.TotalMoneyMade + work.MoneyGained;
 
             //Reset some things to default
             bill.TotalBill = 0;

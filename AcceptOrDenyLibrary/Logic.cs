@@ -139,8 +139,8 @@ namespace AcceptOrDenyLibrary
         {
             Console.Clear();
 
-            player.FirstName = Player.NamePlayer("Write the first name of your new character.");
-            player.LastName = Player.NamePlayer("And the last name?");
+            player.FirstName = Player.NamePlayer();
+            player.LastName = Player.NamePlayer();
             Console.Clear();
             Player.Home(bill, player, work);
         }

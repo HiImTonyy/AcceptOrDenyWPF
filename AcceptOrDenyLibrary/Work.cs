@@ -25,6 +25,12 @@ namespace AcceptOrDenyLibrary
         private int moneyPerWrongChoice;
         private int moneyLost;
         private double moneyGained;
+        private double mostMoneyMade;
+        private int highestPerfectCorrectStreak;
+        private int currentPerfectCorrectSteak;
+        private int highestPerfectIncorrectStreak;
+        private int currentPerfectIncorrectSteak;
+        private double totalMoneyMade;
 
 
         public int DayWage
@@ -117,6 +123,42 @@ namespace AcceptOrDenyLibrary
             set { moneyGained = value; }
         }
 
+        public double MostMoneyMade
+        {
+            get { return mostMoneyMade; }
+            set { mostMoneyMade = value; }
+        }
+
+        public int HighestPerfectCorrectStreak
+        {
+            get { return highestPerfectCorrectStreak; }
+            set { highestPerfectCorrectStreak = value; }
+        }
+
+        public int CurrentPerfectCorrectStreak
+        {
+            get { return currentPerfectCorrectSteak; }
+            set { currentPerfectCorrectSteak = value; }
+        }
+
+        public int HighestPerfectIncorrectStreak
+        {
+            get { return highestPerfectIncorrectStreak; }
+            set { highestPerfectIncorrectStreak = value; }
+        }
+
+        public int CurrentPerfectIncorrectStreak
+        {
+            get { return currentPerfectIncorrectSteak; }
+            set { currentPerfectIncorrectSteak = value; }
+        }
+
+        public double TotalMoneyMade
+        {
+            get { return totalMoneyMade; }
+            set {  totalMoneyMade = value; }
+        }
+
         public Work()
         {
             dayWage = 50;
@@ -134,6 +176,12 @@ namespace AcceptOrDenyLibrary
             moneyPerWrongChoice = 10;
             moneyLost = 0;
             moneyGained = 0;
+            mostMoneyMade = 0;
+            highestPerfectCorrectStreak = 0;
+            currentPerfectCorrectSteak = 0;
+            highestPerfectIncorrectStreak = 0;
+            currentPerfectIncorrectSteak = 0;
+            totalMoneyMade = 0;
         }
 
 
@@ -152,6 +200,7 @@ namespace AcceptOrDenyLibrary
             }
             else if (choice == "deny" && npc.IsIllegal == false)
             {
+
                 IncreaseIncorrectJudgement(work, npc);
                 npc.ErrorTypeString = "... oh wait, THEY WERE LEGAL!";
                 return true;
@@ -185,7 +234,6 @@ namespace AcceptOrDenyLibrary
         {
             string bossComment = "pizza";
             int commentSelected = 0;
-            int dividedLineup = work.TotalLineup / 2;
 
             List<string> worstDayComments = new List<string>();
 
@@ -221,23 +269,31 @@ namespace AcceptOrDenyLibrary
             {
                 commentSelected = Logic.RollRandomNumber(0, worstDayComments.Count);
                 bossComment = worstDayComments[commentSelected];
+
+                work.currentPerfectIncorrectSteak++;
+                work.currentPerfectCorrectSteak = 0;
+                if (work.CurrentPerfectIncorrectStreak > work.HighestPerfectIncorrectStreak) { work.HighestPerfectIncorrectStreak = work.CurrentPerfectIncorrectStreak;}
             }
             else if (work.TodaysCorrectJudgements == work.TotalLineup)
             {
                 commentSelected = Logic.RollRandomNumber(0, bestDayComments.Count );
                 bossComment = bestDayComments[commentSelected];
+
+                work.currentPerfectCorrectSteak++;
+                work.currentPerfectIncorrectSteak = 0;
+                if (work.CurrentPerfectCorrectStreak > work.HighestPerfectCorrectStreak) { work.HighestPerfectCorrectStreak = work.CurrentPerfectCorrectStreak; }
             }
             else if (work.TodaysIncorrectJudgements == work.TodaysCorrectJudgements)
             {
                 commentSelected = Logic.RollRandomNumber(0, averageDayComments.Count);
                 bossComment = averageDayComments[commentSelected];
             }
-            else if (work.TodaysCorrectJudgements > dividedLineup)
+            else if (work.TodaysCorrectJudgements > work.TodaysIncorrectJudgements)
             {
                 commentSelected = Logic.RollRandomNumber(0, goodDayComments.Count);
                 bossComment = goodDayComments[commentSelected];
             }
-            else if (work.TodaysIncorrectJudgements > dividedLineup)
+            else if (work.TodaysIncorrectJudgements > work.TodaysCorrectJudgements)
             {
                 commentSelected = Logic.RollRandomNumber(0, badDayComments.Count);
                 bossComment = badDayComments[commentSelected];

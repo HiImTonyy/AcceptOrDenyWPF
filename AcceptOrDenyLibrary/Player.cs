@@ -39,14 +39,10 @@
             daysEmployed = 0;
         }
 
-        public static string NamePlayer(string description)
+        public static string NamePlayer()
         {
             Console.Clear();
             string name = "timothy";
-
-            Console.WriteLine(description);
-            Console.Write("Input: ");
-            name = Console.ReadLine();
             return name;
         }
 

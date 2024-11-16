@@ -37,8 +37,23 @@ namespace AcceptOrDenyWPF.Menu_Screens
             this.work = work;
 
             EndDay();
+            bool isEven = false;
+            int evenNumber = 5378008;
 
-            work.CurrentLineup = Logic.RollRandomNumber(5, 15);
+
+            // This is so that the lineup is always even for the boss to make a decent comment... you need half correct judgements and half incorrect judgements.
+            do
+            {
+                evenNumber = Logic.RollRandomNumber(6, 17);
+
+                if (evenNumber % 2 == 0)
+                {
+                    isEven = true;
+                }
+            } while (!isEven);
+
+
+            work.CurrentLineup = evenNumber;
             work.TotalLineup = work.CurrentLineup;
             player.DaysEmployed++;
 
