@@ -205,7 +205,11 @@ namespace AcceptOrDenyLibrary
                 npc.ErrorTypeString = "... oh wait, THEY WERE LEGAL!";
                 return true;
             }
-            else return true;
+            else
+            {
+                IncreaseIncorrectJudgement(work, npc);
+                return true;
+            }
         }
 
         public static void IncreaseCorrectJudgement(Work work)
